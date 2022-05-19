@@ -1,0 +1,32 @@
+version: "3"
+services:
+  folio-client:
+    image: folio-client
+    build: ./folio-client/
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    networks:
+      - folio-network
+    volumes:
+      - ./folio-client/:/usr/src/app
+      - /usr/src/app/node_modules
+
+  folio-server:
+    image: folio-server
+    build:
+      context: ./folio-server/
+      args:
+        MONGODB_USER: curiousyuvi
+        MONGODB_PASSWORD: anshitiwari
+    ports:
+      - "5000:5000"
+    networks:
+      - folio-network
+    volumes:
+      - ./folio-server/:/usr/src/app
+      - /usr/src/app/node_modules
+
+networks:
+  folio-network:
+    driver: bridge
