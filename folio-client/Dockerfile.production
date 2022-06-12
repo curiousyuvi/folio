@@ -1,3 +1,5 @@
+# first stage
+
 FROM node:18-slim
 
 COPY . /usr/src/app
@@ -8,6 +10,13 @@ RUN mkdir -p node_modules/.cache && chmod -R 777 node_modules/.cache
 
 RUN npm i
 
-EXPOSE 3000
+RUN npm build
 
-CMD ["npm","start"]
+# second stage
+
+FROM caddy:2.5.1-alpine
+
+ARG CADDYFILE
+
+COPY ${CADDYFILE}  /etc/caddy/Caddyfile
+

@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-const dotenv = require("dotenv").config();
+require("dotenv").config();
 
 mongoose
-  .connect(process.env.MONGODB_URL)
+  .connect(process.env.MONGODB_URL, { authSource: "admin" })
   .then(() => {
     console.log("CONNECTED SUCCESSFULLY TO MONGODB...");
   })

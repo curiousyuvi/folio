@@ -1,0 +1,1 @@
+{"buildTargets":["build-dev","build-local","build-production","remove-dev","run-dev","run-local","run-production"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

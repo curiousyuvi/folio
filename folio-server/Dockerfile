@@ -16,7 +16,11 @@ RUN npm i
 
 RUN touch .env
 
-RUN echo "MONGODB_URL=mongodb+srv://${MONGODB_USER}:${MONGODB_PASSWORD}@cluster0.zodlz.mongodb.net/folio-db?retryWrites=true&w=majority" > .env
+RUN echo "MONGODB_URL=mongodb://${MONGODB_USER}:${MONGODB_PASSWORD}@mongo:27017/folio_db" > .env
+
+RUN echo "MONGODB_URL=mongodb://${MONGODB_USER}:${MONGODB_PASSWORD}@mongo:27017/folio_db"
+
+RUN cat .env
 
 EXPOSE 5000
 

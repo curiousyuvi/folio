@@ -1,0 +1,6 @@
+http://localhost:80 {
+    root * /srv
+    route {
+        reverse_proxy /api * folio-server:5000
+    }
+}

@@ -1,0 +1,23 @@
+version: "3"
+services:
+  folio-client:
+    image: folio-client-production
+    restart: unless-stopped
+    stdin_open: true
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - folio-network
+
+  folio-server:
+    image: folio-server
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    networks:
+      - folio-network
+
+networks:
+  folio-network:
+    driver: bridge
