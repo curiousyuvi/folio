@@ -38,8 +38,8 @@ services:
       - "27017:27017"
     networks:
       - folio-network
-    # volumes:
-    #   - mongo-data:/data/db
+    volumes:
+      - mongo-data:/data/db
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: Admin123
@@ -62,6 +62,6 @@ services:
 networks:
   folio-network:
     driver: bridge
-# volumes:
-#   mongo-data:
-#     driver: local
+volumes:
+  mongo-data:
+    driver: local
